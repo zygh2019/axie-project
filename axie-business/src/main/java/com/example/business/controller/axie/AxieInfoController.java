@@ -4,6 +4,7 @@ package com.example.business.controller.axie;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import common.annotation.CheckLogin;
 import common.entity.axie.StatisticsDTO;
 import common.utils.HttpClientUtil;
 import common.utils.LoginAxieUtil;
@@ -27,6 +28,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/axie")
+@CheckLogin
 public class AxieInfoController {
 
     @GetMapping("/getCount")

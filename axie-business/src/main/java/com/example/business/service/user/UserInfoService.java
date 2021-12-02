@@ -2,6 +2,7 @@ package com.example.business.service.user;
 
 import com.example.business.entity.user.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import common.entity.user.UserInfoDO;
 
 /**
  * <p>
@@ -12,5 +13,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-12-02
  */
 public interface UserInfoService extends IService<UserInfo> {
-
+    /**
+     * 登陆
+     * @return
+     */
+    UserInfo getUserInfo(UserInfoDO userInfoDO);
 }
