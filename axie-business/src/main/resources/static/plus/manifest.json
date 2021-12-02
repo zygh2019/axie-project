@@ -1,0 +1,16 @@
+{
+ 	"name": "axieDatas",
+ 	"description": "axieDatas",
+ 	"version": "1.0",
+ 	"manifest_version": 2,
+ 	"content_scripts": [{
+ 		"matches": ["*://*/*"],
+ 		"js": ["js/jquery.js","layui/layui.js"],
+		"css": ["layui/css/layui.css"]
+ 	}],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+ 	"browser_action": {
+ 		"default_popup": "main.html",
+ 		"default_icon": "image/silkpay.png"
+ 	}
+ }
