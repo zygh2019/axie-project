@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import lombok.*;
 
 /**
  * <p>
@@ -18,6 +18,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserInfoDO  {
 
     private static final long serialVersionUID = 1L;
@@ -35,5 +38,8 @@ public class UserInfoDO  {
      * 令牌
      */
     private String token;
-
+    /**
+     * 密钥
+     */
+    private String sessionKey;
 }

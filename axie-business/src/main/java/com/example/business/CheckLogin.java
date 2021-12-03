@@ -1,4 +1,4 @@
-package common.annotation;
+package com.example.business;
 
 import java.lang.annotation.*;
 

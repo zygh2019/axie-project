@@ -14,6 +14,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class HttpClientUtil {
             httpClient = new SSLClient();
             httpPost = new HttpPost(url);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
-            httpPost.addHeader("token", LoginAxieUtil.TOKEN);
+            //httpPost.addHeader("token", LoginAxieUtil.TOKEN);
             List<NameValuePair> params = new ArrayList<>();
             map.forEach((key, val) -> {
                 BasicNameValuePair account = new BasicNameValuePair(key, val);

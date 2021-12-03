@@ -14,8 +14,15 @@ import common.entity.user.UserInfoDO;
  */
 public interface UserInfoService extends IService<UserInfo> {
     /**
-     * 登陆
+     * 查询用户信息
      * @return
      */
     UserInfo getUserInfo(UserInfoDO userInfoDO);
+
+    /**
+     * 登陆
+     * @return
+     */
+    UserInfo login(String sessionKey);
+
 }
