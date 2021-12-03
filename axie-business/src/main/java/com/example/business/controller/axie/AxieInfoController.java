@@ -33,7 +33,7 @@ public class AxieInfoController {
 
     @GetMapping("/getCount")
     public ApiResponse<List<StatisticsDTO>> getCount() {
-        LoginAxieUtil.login(); //登陆
+        //登陆
         Map<String, String> map1 = new HashMap<>();
         String url = "https://api.hhwguild.com/index.php/summary/get_earning_table";
         map1.put("batch_id", "BAT657");
@@ -44,10 +44,6 @@ public class AxieInfoController {
         JSONObject tokenDTO = JSON.parseObject(httpOrgCreateTestRtn1);
         JSONObject data = tokenDTO.getJSONObject("data");
         String table = data.getString("table");
-        if (table == null) {
-            LoginAxieUtil.INIT = false;
-            LoginAxieUtil.login();
-        }
         List<StatisticsDTO> busLineList = JSON.parseObject(table, new TypeReference<List<StatisticsDTO>>() {});
 
 

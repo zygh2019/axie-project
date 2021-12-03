@@ -22,8 +22,6 @@
         <log4j.version>1.2.17</log4j.version>
         <lombok.version>1.16.18</lombok.version>
         <druid.verison>1.1.10</druid.verison>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
         <redisson.version>3.10.4</redisson.version>
     </properties>
 

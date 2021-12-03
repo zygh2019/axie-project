@@ -31,7 +31,9 @@ public class UserInfoDO  {
      * 密码
      */
     private String password;
-
+    /**
+     * 令牌
+     */
     private String token;
 
 }
