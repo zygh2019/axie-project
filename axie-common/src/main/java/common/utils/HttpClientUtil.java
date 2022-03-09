@@ -10,12 +10,14 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Component;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -83,11 +85,13 @@ public class HttpClientUtil {
                 url += "?" + EntityUtils.toString(new UrlEncodedFormEntity(pairs), CHARSET);
             }
 
-            CloseableHttpClient httpclient = HttpClients.createDefault();
+            HttpClient httpClient = new DefaultHttpClient();
             RequestConfig config = RequestConfig.custom().setConnectTimeout(5000).setSocketTimeout(3000).build();
-            httpclient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+            httpClient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
             HttpGet httpGet = new HttpGet(url);
-            CloseableHttpResponse response = httpclient.execute(httpGet);
+            httpGet.addHeader("X-RapidAPI-Host","axie-infinity.p.rapidapi.com");
+            httpGet.addHeader("X-RapidAPI-Key","SIGN-UP-FOR-KEY");
+            HttpResponse response = httpClient.execute(httpGet);
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode != 200) {
                 httpGet.abort();
@@ -97,14 +101,18 @@ public class HttpClientUtil {
             if (entity != null) {
                 result = EntityUtils.toString(entity, "utf-8");
                 EntityUtils.consume(entity);
-                response.close();
                 return result;
             } else {
                 return null;
             }
+
+
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
+
         return result;
     }
 }

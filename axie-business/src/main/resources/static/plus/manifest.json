@@ -1,16 +1,24 @@
 {
- 	"name": "axieDatas",
- 	"description": "axieDatas",
- 	"version": "1.0",
- 	"manifest_version": 2,
- 	"content_scripts": [{
- 		"matches": ["*://*/*"],
- 		"js": ["js/jquery.js","layui/layui.js"],
-		"css": ["layui/css/layui.css"]
- 	}],
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
- 	"browser_action": {
- 		"default_popup": "main.html",
- 		"default_icon": "image/silkpay.png"
- 	}
- }
+	"code": 0,
+	"msg": "ok",
+	"data": {
+		"awardData": [
+			{
+				"awardList": [
+					{
+						"awardType": 3, //1分享点评2.阅读课后点评
+						"awardRuleList": [
+									{
+										"awardRuleType": 1 ,//奖励规则类型 1每次分享 2每日上限 3阅读每条课后点评
+										"awardRuleContent": ""  //奖励规则内容
+									}
+								]
+			}
+		],
+		"nodeType": 1 //节点类型1.阅读奖励2.分享奖励
+	}
+],
+	"gciId": 18309,
+	"kdtId": 42095703
+}
+}

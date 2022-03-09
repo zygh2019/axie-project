@@ -10,8 +10,17 @@ import lombok.Data;
  */
 @Data
 public class ApiResponse<T> {
+    /**
+     * 代码
+     */
     public int code;
+    /**
+     * 数据
+     */
     public T data;
+    /**
+     * 消息
+     */
     public String msg;
     public Integer count;
 

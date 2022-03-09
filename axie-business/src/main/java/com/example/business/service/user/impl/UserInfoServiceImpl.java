@@ -45,16 +45,12 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     @Override
     public UserInfo getUserInfo(UserInfoDO userInfoDO) {
         QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
-        Optional.ofNullable(userInfoDO.getName()).ifPresent(o->{
-            queryWrapper.eq("name", userInfoDO.getName());
-        });
-        Optional.ofNullable(userInfoDO.getPassword()).ifPresent(o->{
-            queryWrapper.eq("password", userInfoDO.getPassword());
-        });
-        Optional.ofNullable(userInfoDO.getPassword()).ifPresent(o->{
-            queryWrapper.eq("session_key", userInfoDO.getSessionKey());
-        });
+
+     if(userInfoDO.getSessionKey()!=null){
+         queryWrapper.eq("session_key", userInfoDO.getSessionKey());
+     }
         queryWrapper.eq("is_delete", 0);
+
         return userInfoMapper.selectOne(queryWrapper);
     }
 
@@ -66,6 +62,8 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
      */
     @Override
     public UserInfo login(String sessionKey) {
+
+
         UserInfo userInfo = getUserInfo(UserInfoDO.builder().sessionKey(sessionKey).build());
         if(Objects.isNull(userInfo)){
             return null;

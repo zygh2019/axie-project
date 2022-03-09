@@ -9,11 +9,18 @@ public class TokenDTO {
      */
     String code;
     /**
-     * 用户
+     * 信息
      */
     String message;
-
+    /**
+     * 数据
+     */
     UserLoginInfo data;
+
+
+
+
+
 }
 
 

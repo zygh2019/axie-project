@@ -10,12 +10,13 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.Objects;
 
 @Aspect
 @Component
 public class ChectLoginInterceptor {
-    @Autowired
+    @Resource
     private UserInfoService userInfoService;
 
     @Before(value = "@within(com.example.business.CheckLogin) || @annotation(com.example.business.CheckLogin)")
@@ -26,9 +27,11 @@ public class ChectLoginInterceptor {
         if (Objects.isNull(annotation)) {
             annotation = jointPoint.getTarget().getClass().getAnnotation(CheckLogin.class);
         }
+
         UserInfo userInfo = userInfoService.login("123456");
         if (Objects.isNull(userInfo)){
             throw new IllegalArgumentException("用户不存在");
         }
+
     }
 }
