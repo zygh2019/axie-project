@@ -19,14 +19,15 @@ import java.util.List;
 public  class Threshold implements ValueObject<Threshold> {
 
   private  ThreasHoldTypeEnum threasHoldTypeEnum;
+  /**
+   * 班课id
+   */
+
+    private Long classId;
     /**
-     * 班课门槛
+     * 专栏alias
      */
-    private  ClassThreshold classThreshold;
-    /**
-     * 支付门槛
-     */
-    private  Object payThreshold;
+    private  List<String> payThreshold;
     /**
      * Value objects compare by the values of their attributes, they don't have an identity.
      *

@@ -30,11 +30,17 @@ public class GciActiviteFactory {
         ThresholdHandleDelegate thresholdHandleDelegate = new ThresholdHandleDelegateImpl(thresholdHandleList);
         //门槛
         Threshold threshold = new Threshold();
+        //聚合根
         GciActivite build = GciActivite.builder()
                 .thresholdHandleDelegate(thresholdHandleDelegate)
-                .threshold(threshold).build();
-        //门槛校验
+                .threshold(threshold)
+                .build();
+
+        //校验
         build.check();
 
+        save(build.getGci());
+        save(build.getInformation());
+        save(build.getInformation());
     }
 }

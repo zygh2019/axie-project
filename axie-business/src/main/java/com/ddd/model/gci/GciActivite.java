@@ -36,12 +36,17 @@ public class GciActivite implements Aggregate<GciActivite> {
     Object information;
 
     ThresholdHandleDelegate thresholdHandleDelegate;
+
     /**
      * 检查是否满足门槛
      *
      * @return
      */
     public boolean check() {
+        //门槛校验
+        //信息采集校验
+        //商品校验
+        //创建商品
         //专栏需要查询
         //根据类型做路由 然后做校验
         //如果为班课

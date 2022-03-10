@@ -16,6 +16,7 @@ import java.util.List;
 public class ThresholdHandleDelegateImpl implements ThresholdHandleDelegate{
 
     private List<ThresholdHandle> thresholdHandleList;
+    private Threshold threshold;
 
     @Override
     public boolean check(Threshold threshold) {
@@ -26,7 +27,13 @@ public class ThresholdHandleDelegateImpl implements ThresholdHandleDelegate{
                 .filter(handler -> handler.getType().equals(threshold.getThreasHoldTypeEnum().getCode()))
                 .findFirst()
                 .orElse(null);
-        thresholdHandle.check();
+        thresholdHandle.check(threshold);
         return false;
     }
+    @Override
+    public boolean getThreshold(Threshold threshold) {
+
+        return false;
+    }
+
 }

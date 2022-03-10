@@ -1,6 +1,7 @@
 package com.ddd.handle;
 
 import com.ddd.enums.ThreasHoldTypeEnum;
+import com.ddd.model.gci.Threshold;
 
 /**
  * 门槛校验处理器
@@ -11,7 +12,8 @@ import com.ddd.enums.ThreasHoldTypeEnum;
 public interface ThresholdHandle {
 
 
-     boolean check();
+     boolean check(Threshold threshold);
 
     ThreasHoldTypeEnum getType();
+
 }
